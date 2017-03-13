@@ -47,7 +47,13 @@ public class GestionDatos extends JFrame{
         while ((thisLine = myInput.readLine()) != null) {
             StringTokenizer st = new StringTokenizer(thisLine, delimiter);
             while(st.hasMoreElements()){
-                dato = Double.parseDouble((String) st.nextElement());
+                try{
+                    dato = Double.parseDouble((String) st.nextElement());
+                } catch(NumberFormatException e){
+                    System.out.println("Error al cargar los datos.\n Formato erròneo\nPor favor verifique el archivo e intente nuevamente :)");
+                    ListaLigada leerDatos = leerDatos(delimiter);
+                    return leerDatos;
+                }                
                 value = new Nodo(dato);
                 values.addNodo(value);
             }
