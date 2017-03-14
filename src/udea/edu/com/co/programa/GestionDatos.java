@@ -15,6 +15,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -50,7 +51,7 @@ public class GestionDatos extends JFrame{
                 try{
                     dato = Double.parseDouble((String) st.nextElement());
                 } catch(NumberFormatException e){
-                    System.out.println("Error al cargar los datos.\n Formato erròneo\nPor favor verifique el archivo e intente nuevamente :)");
+                    JOptionPane.showMessageDialog(null,"Error al cargar los datos.\n Formato erròneo\nPor favor verifique el archivo e intente nuevamente :)");
                     ListaLigada leerDatos = leerDatos(delimiter);
                     return leerDatos;
                 }                
