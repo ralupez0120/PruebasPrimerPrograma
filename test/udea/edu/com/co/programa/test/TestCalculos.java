@@ -19,26 +19,36 @@ import udea.edu.com.co.programa.ListaLigada;
  */
 public class TestCalculos {
     GestionDatos prueba = new GestionDatos();
-    double media;
+    ListaLigada datos;
+    double media, suma;
     
     @Test
     public void mediaCero() throws IOException{
-        ListaLigada datos = prueba.leerDatos(",");
+        datos = prueba.leerDatos(",");
         media = calcularMedia(datos);
         assertTrue(media!=0);
     }
     
     @Test
     public void mediaNegativa() throws IOException{
-        ListaLigada datos = prueba.leerDatos(",");
+        datos = prueba.leerDatos(",");
         media = calcularMedia(datos);
         assertTrue(media>0);
     }
     
     @Test
     public void varianzaNegativa() throws IOException{
-        ListaLigada datos = prueba.leerDatos(",");
+        datos = prueba.leerDatos(",");
         media = calcularVarianza(datos);
         assertTrue(media>0);
     }
+    
+/*    @Test
+    public void sumarListasCero() throws IOException{
+        ListaLigada X, Y;
+        X = prueba.leerDatos(",");
+        Y = prueba.leerDatos(",");
+        suma = sumarDatos(X,Y);
+        assertTrue(suma>0);
+    }*/
 }

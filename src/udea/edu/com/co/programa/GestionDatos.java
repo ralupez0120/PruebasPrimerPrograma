@@ -38,15 +38,24 @@ public class GestionDatos extends JFrame{
     
     public ListaLigada leerDatos(String delimiter) throws FileNotFoundException, IOException{
         String filePath = abrirArchivo();
-        InputStream in = new FileInputStream(filePath);
-        String thisLine;
-        BufferedInputStream s = new BufferedInputStream(in);
-        BufferedReader myInput = new BufferedReader(new InputStreamReader(s));
         ListaLigada values = new ListaLigada();
-        double dato = 0;
+        InputStream in = null;
+        BufferedInputStream s;
+        BufferedReader myInput;
+        StringTokenizer st;
         Nodo value = null;
+        double dato = 0;
+        try{
+            in = new FileInputStream(filePath);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No ha abierto ningun archivo");
+            return null;
+        }
+        String thisLine;
+        s = new BufferedInputStream(in);
+        myInput = new BufferedReader(new InputStreamReader(s));
         while ((thisLine = myInput.readLine()) != null) {
-            StringTokenizer st = new StringTokenizer(thisLine, delimiter);
+            st = new StringTokenizer(thisLine, delimiter);
             while(st.hasMoreElements()){
                 try{
                     dato = Double.parseDouble((String) st.nextElement());
