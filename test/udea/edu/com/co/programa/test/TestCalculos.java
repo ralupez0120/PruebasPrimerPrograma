@@ -19,7 +19,7 @@ import udea.edu.com.co.programa.ListaLigada;
  */
 public class TestCalculos {
     GestionDatos prueba = new GestionDatos();
-    ListaLigada datos;
+    ListaLigada datos, X, Y;
     double media, suma;
     
     @Test
@@ -43,12 +43,10 @@ public class TestCalculos {
         assertTrue(media>0);
     }
     
-/*    @Test
+    @Test
     public void sumarListasCero() throws IOException{
-        ListaLigada X, Y;
         X = prueba.leerDatos(",");
         Y = prueba.leerDatos(",");
-        suma = sumarDatos(X,Y);
-        assertTrue(suma>0);
-    }*/
+        assertTrue(X != null && Y != null);
+    }
 }

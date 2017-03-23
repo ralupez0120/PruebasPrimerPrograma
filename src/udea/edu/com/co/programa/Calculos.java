@@ -65,13 +65,17 @@ public class Calculos {
     }
     
     public static double calcularBetaUno(ListaLigada X, ListaLigada Y){
-        double beta, numerador, denominador, n, xMedia, yMedia;
+        double beta = 0, numerador, denominador, n, xMedia, yMedia;
         xMedia = calcularMedia(X);
         yMedia = calcularMedia(Y);
         n = X.getCabeza().getDato();
         numerador = sumarProductoListas(X, Y) - (n * xMedia * yMedia);
         denominador = sumaCuadratica(X) - (n * Math.pow(xMedia, 2));
-        beta = numerador / denominador;
+        try{
+            beta = numerador / denominador;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
         return beta;
     }
     
