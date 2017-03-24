@@ -43,4 +43,10 @@ public class TestCalculos {
         assertTrue(media>0);
     }
     
+    @Test
+    public void sumarListasCero() throws IOException{
+        X = prueba.leerDatos(",");
+        Y = prueba.leerDatos(",");
+        assertTrue(X != null && Y != null);
+    }
 }
